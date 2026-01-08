@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متحف المقاومة المغربية | معرض مجموعة "الخير"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== الأساسيات ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --morocco-red: #C1272D;
+            --morocco-green: #006233;
+            --gold: #D4AF37;
+            --dark: #0c1a14;
+            --light: #F8F9FA;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c1a14 0%, #1a2c1f 100%);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+            font-family: 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
+        }
+
+        /* ===== الهيدر الرئيسي ===== */
+        .main-header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(193, 39, 45, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 98, 51, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgPulse 10s infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .site-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--gold), #FFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            animation: titleGlow 3s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); }
+            100% { text-shadow: 0 5px 30px rgba(212, 175, 55, 0.7); }
+        }
+
+        .group-badge {
+            background: linear-gradient(135deg, var(--morocco-green), #004d29);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--gold);
+            animation: badgeFloat 4s infinite ease-in-out;
+            font-size: 1.3rem;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ===== الإشكالية ===== */
+        .problematic-section {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .problematic-title {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .problematic-content {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(193, 39, 45, 0.1);
+            border-radius: 15px;
+            border-right: 4px solid var(--morocco-red);
+            border-left: 4px solid var(--morocco-green);
+            margin-bottom: 2rem;
+        }
+
+        .problematic-subtitle {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* ===== الخط الزمني الجديد ===== */
+        .new-timeline-section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .timeline-container-new {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .timeline-container-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                var(--morocco-red) 10%, 
+                var(--gold) 50%, 
+                var(--morocco-green) 90%, 
+                transparent 100%
+            );
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            width: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-right: auto;
+            padding-right: 3rem;
+            padding-left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            transform: translateX(100%);
+        }
+
+        .timeline-year {
+            position: absolute;
+            right: -25px;
+            top: 0;
+            background: linear-gradient(135deg, var(--morocco-red), #a02020);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 0 0 8px rgba(0, 98, 51, 0.3);
+            border: 3px solid var(--gold);
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            right: auto;
+            left: -25px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .timeline-image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== معرض الصور مع التعليقات ===== */
+        .gallery-section {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .image-gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(193, 39, 45, 0.2);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-year {
+            display: inline-block;
+            background: var(--morocco-green);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .read-more:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* ===== المتحف التفاعلي ===== */
+        .interactive-museum {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin: 5rem 0;
+        }
+
+        .museum-title {
+            position: absolute;
+            top: 2rem;
+            right: 0;
+            left: 0;
+            text-align: center;
+            z-index: 10;
+            color: var(--gold);
+            font-size: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .museum-hall {
+            width: 100%;
+            height: 100%;
+            perspective: 1500px;
+            position: relative;
+        }
+
+        .museum-wall {
+            position: absolute;
+            width: 80%;
+            height: 70%;
+            top: 15%;
+            right: 10%;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .art-piece {
+            position: absolute;
+            width: 220px;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 8px solid var(--gold);
+            border-radius: 15px;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .art-piece:hover {
+            transform: translateZ(80px) rotateY(5deg) scale(1.05);
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.6);
+            border-color: #ffd700;
+        }
+
+        .art-piece img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== قسم المجموعة ===== */
+        .group-section {
+            padding: 5rem 2rem;
+            background: rgba(0, 98, 51, 0.05);
+            margin-top: 5rem;
+        }
+
+        .group-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .group-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .group-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--morocco-red);
+        }
+
+        .group-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* ===== أهمية الصور ===== */
+        .image-importance {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+            text-align: center;
+        }
+
+        .importance-title {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .importance-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== الفوتر ===== */
+        .main-footer {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--morocco-red);
+            margin-top: 5rem;
+        }
+
+        .footer-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .footer-signature {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+
+        /* ===== عناصر التحكم ===== */
+        .site-controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--morocco-green), var(--morocco-red));
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(193, 39, 45, 0.4);
+        }
+
+        /* ===== المودال ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0c1a14, #1a2c1f);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 3px solid var(--gold);
+            position: relative;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-title {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-year {
+            background: var(--morocco-red);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--morocco-red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== التجاوبية ===== */
+        @media (max-width: 1200px) {
+            .site-title { font-size: 3.5rem; }
+            .image-gallery { grid-template-columns: repeat(2, 1fr); }
+            .timeline-container-new::before { right: 30px; }
+            .timeline-item { width: calc(100% - 50px); }
+            .timeline-item:nth-child(even) { transform: none; }
+        }
+
+        @media (max-width: 768px) {
+            .site-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .image-gallery { grid-template-columns: 1fr; }
+            .group-badge { padding: 1rem 2rem; font-size: 1.1rem; }
+            .problematic-content { font-size: 1.2rem; }
+            .museum-title { font-size: 1.8rem; }
+            .timeline-item { width: 100%; padding-right: 3rem; padding-left: 0; }
+            .timeline-item:nth-child(even) { margin-left: 0; }
+            .timeline-year { right: -25px; }
+        }
+
+        @media (max-width: 480px) {
+            .site-title { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .group-content { grid-template-columns: 1fr; }
+            .problematic-section { padding: 1.5rem; }
+            .control-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+        }
+
+        /* ===== الأنيميشن ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* ===== شريط التمرير ===== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--morocco-red), var(--gold));
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, var(--gold), var(--morocco-green));
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--morocco-red), var(--morocco-green), transparent);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== الهيدر الرئيسي ===== -->
+    <header class="main-header">
+        <h1 class="site-title">متحف المقاومة المغربية</h1>
+        <p style="font-size: 1.5rem; margin-bottom: 2rem; max-width: 800px; opacity: 0.9;">
+            رحلة الأبطال والذاكرة: من ثورة الملك والشعب إلى استقلال الأمة (1953-1956)
+        </p>
+        
+        <div class="group-badge">
+            <i class="fas fa-users-crown"></i>
+            <div>
+                <div style="font-size: 1.8rem; font-weight: bold;">مجموعة "الخير"</div>
+                <div>ورشة الذاكرة والتاريخ | العرض النهائي</div>
+            </div>
+        </div>
+
+        <!-- الإشكالية البحثية -->
+        <div class="problematic-section fade-in">
+            <div class="problematic-title">
+                <i class="fas fa-brain"></i>
+                الإشكالية المركزية للبحث
+            </div>
+            
+            <div class="problematic-content">
+                <strong>"إلى أي مدى ساهمت المقاومة المغربية (1953-1956) في تسريع مسار الاستقلال الوطني، 
+                وكيف تجلت مظاهر هذه المساهمة في الأرشيف البصري المتاح؟"</strong>
+            </div>
+
+            <div class="problematic-subtitle">
+                <i class="fas fa-sitemap"></i>
+                محاور الدراسة: المقاومة المسلحة • الوحدة الوطنية • الضغط الدبلوماسي • الذاكرة البصرية
+            </div>
+        </div>
+
+        <div style="position: absolute; bottom: 3rem;">
+            <i class="fas fa-chevron-down fa-bounce" style="font-size: 2.5rem; color: var(--gold);"></i>
+        </div>
+    </header>
+
+    <!-- ===== الخط الزمني الجديد ===== -->
+    <section class="new-timeline-section">
+        <h2 class="section-title fade-in">الخط الزمني التاريخي (1953-1956)</h2>
+        
+        <div class="timeline-container-new">
+            <!-- مرحلة 1953 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-year">1953</div>
+                <div class="timeline-content">
+                    <h3>بداية الثورة ونفي الملك</h3>
+                    <p>في 20 أغسطس 1953، نفى الاستعمار الفرنسي الملك محمد الخامس وأسرته إلى كورسيكا ثم مدغشقر. هذا الفعل أشعل شرارة المقاومة الوطنية.</p>
+                    
+                    <div class="timeline-image-container">
+                        <img src="https://alittihad.info/wp-content/uploads/2017/08/galerie.jpg" 
+                             alt="نفي الملك محمد الخامس" 
+                             class="timeline-image"
+                             onclick="showImageModal(
+                                 'https://alittihad.info/wp-content/uploads/2017/08/galerie.jpg',
+                                 'نفي الملك محمد الخامس',
+                                 '20 أغسطس 1953',
+                                 'تم نفي الملك محمد الخامس وأسرته إلى كورسيكا ثم مدغشقر. كان هذا الحدث الشرارة التي أشعلت المقاومة الوطنية وأظهرت وحدة العرش والشعب.'
+                             )">
+                        <div class="image-caption">نفي الملك محمد الخامس - 20 أغسطس 1953</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحلة 1953 - اغتيال علال بن عبد الله -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-year">1953</div>
+                <div class="timeline-content">
+                    <h3>عميلة اغتيال السلطان الوهمي</h3>
+                    <p>في 11 سبتمبر 1953، حاول الشهيد علال بن عبد الله اغتيال السلطان الوهمي محمد بن عرفة، معلناً بداية المقاومة المسلحة.</p>
+                    
+                    <div class="timeline-image-container">
+                        <img src="https://1.bp.blogspot.com/-IIR4b5iUIc8/UE-2HSvRckI/AAAAAAAAAfs/j8lOibZ0Ju8/s1600/allal+ben+abdallah.jpg" 
+                             alt="الشهيد علال بن عبد الله" 
+                             class="timeline-image"
+                             onclick="showImageModal(
+                                 'https://1.bp.blogspot.com/-IIR4b5iUIc8/UE-2HSvRckI/AAAAAAAAAfs/j8lOibZ0Ju8/s1600/allal+ben+abdallah.jpg',
+                                 'الشهيد علال بن عبد الله',
+                                 '11 سبتمبر 1953',
+                                 'علال بن عبد الله، بطل المقاومة المغربية، حاول اغتيال السلطان الوهمي محمد بن عرفة في 11 سبتمبر 1953. كانت هذه العملية بداية المقاومة المسلحة المنظمة ضد الاستعمار.'
+                             )">
+                        <div class="image-caption">الشهيد علال بن عبد الله - 11 سبتمبر 1953</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحلة 1954 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-year">1954</div>
+                <div class="timeline-content">
+                    <h3>تأسيس جيش التحرير</h3>
+                    <p>تشكل جيش التحرير المغربي بقيادة عبد الكريم الخطيب، وبدأت العمليات العسكرية المنظمة ضد القوات الفرنسية.</p>
+                    
+                    <div class="timeline-image-container">
+                        <img src="https://i1.hespress.com/wp-content/uploads/2008/02/abdelkarim5.jpg" 
+                             alt="القائد عبد الكريم الخطيب" 
+                             class="timeline-image"
+                             onclick="showImageModal(
+                                 'https://i1.hespress.com/wp-content/uploads/2008/02/abdelkarim5.jpg',
+                                 'القائد عبد الكريم الخطيب',
+                                 '1954',
+                                 'عبد الكريم الخطيب، قائد جيش التحرير المغربي، قاد العمليات العسكرية ضد القوات الفرنسية. كان تأسيس جيش التحرير نقطة تحول في المقاومة المغربية.'
+                             )">
+                        <div class="image-caption">القائد عبد الكريم الخطيب - قائد جيش التحرير</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحلة 1955 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-year">1955</div>
+                <div class="timeline-content">
+                    <h3>مسيرة المليون وعودة الملك</h3>
+                    <p>في 16 نوفمبر 1955، عاد الملك محمد الخامس من المنفى بعد مسيرة المليون التاريخية التي أظهرت وحدة الشعب المغربي.</p>
+                    
+                    <div class="timeline-image-container">
+                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1644199702i/32541132.jpg" 
+                             alt="مسيرة المليون" 
+                             class="timeline-image"
+                             onclick="showImageModal(
+                                 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1644199702i/32541132.jpg',
+                                 'مسيرة المليون',
+                                 'نوفمبر 1955',
+                                 'مسيرة المليون التاريخية التي طالبت بعودة الملك محمد الخامس من المنفى. أظهرت هذه المسيرة القوة الشعبية ووحدة الأمة المغربية في المطالبة باستقلالها.'
+                             )">
+                        <div class="image-caption">مسيرة المليون التاريخية - نوفمبر 1955</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحلة 1956 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-year">1956</div>
+                <div class="timeline-content">
+                    <h3>إعلان الاستقلال</h3>
+                    <p>في 2 مارس 1956، تم توقيع وثيقة الاستقلال، منهياً بذلك عهد الحماية الفرنسية على المغرب.</p>
+                    
+                    <div class="timeline-image-container">
+                        <img src="https://i0.wp.com/www.akhbaralfajr.ma/wp-content/uploads/2021/01/%D8%AA%D9%82%D9%8A%D8%AF%D9%85-%D9%88%D8%AB%D9%8A%D9%82%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D9%84%D8%A7%D9%84-1.jpg?fit=883%2C476&ssl=1" 
+                             alt="وثيقة الاستقلال" 
+                             class="timeline-image"
+                             onclick="showImageModal(
+                                 'https://i0.wp.com/www.akhbaralfajr.ma/wp-content/uploads/2021/01/%D8%AA%D9%82%D9%8A%D8%AF%D9%85-%D9%88%D8%AB%D9%8A%D9%82%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D9%84%D8%A7%D9%84-1.jpg?fit=883%2C476&ssl=1',
+                                 'وثيقة الاستقلال',
+                                 '2 مارس 1956',
+                                 'الوثيقة التاريخية التي أنهت الحماية الفرنسية على المغرب وأعلنت استقلال المملكة. تم التوقيع عليها في 2 مارس 1956 بعد نضال طويل وشاق.'
+                             )">
+                        <div class="image-caption">وثيقة الاستقلال - 2 مارس 1956</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== معرض الصور مع التعليقات ===== -->
+    <section class="gallery-section">
+        <h2 class="section-title fade-in">معرض الصور التاريخية</h2>
+        
+        <div class="image-gallery">
+            <!-- صورة 1 -->
+            <div class="gallery-card fade-in">
+                <img src="https://palatinu.co/wp-content/uploads/2022/04/Mohammed-V-1.jpg" 
+                     alt="الملك محمد الخامس">
+                <div class="card-content">
+                    <div class="card-year">الخمسينات</div>
+                    <h3 class="card-title">الملك محمد الخامس</h3>
+                    <p class="card-description">رمز الوحدة الوطنية وقائد مسيرة الاستقلال، قاد النضال ضد الاستعمار ووحّد الشعب المغربي.</p>
+                    <button class="read-more" onclick="showImageModal(
+                        'https://palatinu.co/wp-content/uploads/2022/04/Mohammed-V-1.jpg',
+                        'الملك محمد الخامس',
+                        'الخمسينات',
+                        'الملك محمد الخامس، رمز المقاومة الوطنية وقائد مسيرة الاستقلال. قاد النضال ضد الاستعمار الفرنسي ووحّد الشعب المغربي حول العرش. نفي عام 1953 لكنه عاد منتصراً عام 1955 ليعلن الاستقلال.'
+                    )">قراءة المزيد</button>
+                </div>
+            </div>
+
+            <!-- صورة 2 -->
+            <div class="gallery-card fade-in">
+                <img src="https://howiyapress.com/wp-content/uploads/2023/02/31-yanayar.jpg" 
+                     alt="ثورة الملك والشعب">
+                <div class="card-content">
+                    <div class="card-year">1953-1956</div>
+                    <h3 class="card-title">ثورة الملك والشعب</h3>
+                    <p class="card-description">الحركة الشعبية التاريخية التي اندلعت بعد نفي الملك محمد الخامس.</p>
+                    <button class="read-more" onclick="showImageModal(
+                        'https://howiyapress.com/wp-content/uploads/2023/02/31-yanayar.jpg',
+                        'ثورة الملك والشعب',
+                        '1953-1956',
+                        'ثورة الملك والشعب، الحركة الشعبية التاريخية التي اندلعت بعد نفي الملك محمد الخامس عام 1953. جمعت كل فئات الشعب المغربي في نضال موحد ضد الاستعمار.'
+                    )">قراءة المزيد</button>
+                </div>
+            </div>
+
+            <!-- صورة 3 -->
+            <div class="gallery-card fade-in">
+                <img src="https://kifache.com/content/uploads/2020/11/%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D8%B1.jpg" 
+                     alt="جيش التحرير">
+                <div class="card-content">
+                    <div class="card-year">1954-1956</div>
+                    <h3 class="card-title">جيش التحرير المغربي</h3>
+                    <p class="card-description">المقاومون في المناطق الجبلية والريفية يشكلون قوة ضاغطة على الاستعمار.</p>
+                    <button class="read-more" onclick="showImageModal(
+                        'https://kifache.com/content/uploads/2020/11/%D8%AC%D9%8A%D8%B4-%D8%A7%D9%84%D8%AA%D8%AD%D8%B1%D9%8A%D8%B1.jpg',
+                        'جيش التحرير المغربي',
+                        '1954-1956',
+                        'جيش التحرير المغربي، تشكل عام 1954 بقيادة عبد الكريم الخطيب. قاد عمليات عسكرية ناجحة ضد القوات الفرنسية في الجبال والمناطق الوعرة.'
+                    )">قراءة المزيد</button>
+                </div>
+            </div>
+
+            <!-- صورة 4 -->
+            <div class="gallery-card fade-in">
+                <img src="https://marocnewsline.com/wp-content/uploads/2022/11/MVR-Sans-titre-3.jpg" 
+                     alt="عودة الملك من المنفى">
+                <div class="card-content">
+                    <div class="card-year">16 نوفمبر 1955</div>
+                    <h3 class="card-title">عودة الملك من المنفى</h3>
+                    <p class="card-description">السلطان محمد بن يوسف يعود من المنفى منتصراً بحماية وحدوية الشعب المغربي.</p>
+                    <button class="read-more" onclick="showImageModal(
+                        'https://marocnewsline.com/wp-content/uploads/2022/11/MVR-Sans-titre-3.jpg',
+                        'عودة الملك من المنفى',
+                        '16 نوفمبر 1955',
+                        'عودة الملك محمد الخامس من المنفى بعد نضال شعبي طويل. شكلت عودته انتصاراً للمقاومة المغربية وبداية النهاية للحماية الفرنسية.'
+                    )">قراءة المزيد</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== أهمية الصور التاريخية ===== -->
+    <div class="image-importance fade-in">
+        <h2 class="importance-title"><i class="fas fa-camera"></i> أهمية الصور التاريخية</h2>
+        <div class="importance-content">
+            <p>تعتبر الصور الأرشيفية شاهداً حياً على أحداث المقاومة المغربية، فهي:</p>
+            <br>
+            <p>• توثيق بصري لا يمحى للأحداث التاريخية</p>
+            <p>• وسيلة فعالة لنقل الذاكرة الوطنية للأجيال الجديدة</p>
+            <p>• دليل مادي على تضحيات الأبطال والشهداء</p>
+            <p>• أداة تعليمية لفهم التاريخ بطريقة مرئية وجذابة</p>
+            <p>• حافظ للهوية الوطنية والثقافية المغربية</p>
+        </div>
+    </div>
+
+    <!-- ===== المتحف التفاعلي ثلاثي الأبعاد ===== -->
+    <section class="interactive-museum">
+        <h2 class="museum-title">المتحف التفاعلي ثلاثي الأبعاد</h2>
+        
+        <div class="museum-hall">
+            <div class="museum-wall" id="museumHall">
+                <!-- المتحف سيدور تلقائياً -->
+            </div>
+        </div>
+        
+        <div style="position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); 
+                    background: rgba(0,0,0,0.7); padding: 1rem 2rem; border-radius: 10px;
+                    text-align: center; backdrop-filter: blur(5px); border: 1px solid var(--gold);">
+            <p style="margin: 0; color: var(--gold);">
+                <i class="fas fa-mouse-pointer"></i> اسحب لتدوير المتحف • انقر على الصور للتكبير
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== قسم المجموعة والنتائج ===== -->
+    <section class="group-section">
+        <h2 class="section-title fade-in">مجموعة "الخير": منهجية العمل ونتائجه</h2>
+        
+        <div class="group-content">
+            <div class="group-card fade-in">
+                <div class="group-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 style="color: var(--gold); margin-bottom: 1rem; text-align: center;">المنهجية</h3>
+                <ul style="list-style: none; padding-right: 1rem;">
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-check" style="color: var(--morocco-green); position: absolute; right: 0;"></i>
+                        جمع وتوثيق المصادر البصرية التاريخية
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-check" style="color: var(--morocco-green); position: absolute; right: 0;"></i>
+                        التحليل التاريخي المقارن للأحداث
+                    </li>
+                    <li style="padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-check" style="color: var(--morocco-green); position: absolute; right: 0;"></i>
+                        الربط بين الأرشيف البصري والتحليل التاريخي
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="group-card fade-in" style="animation-delay: 0.2s;">
+                <div class="group-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 style="color: var(--gold); margin-bottom: 1rem; text-align: center;">النتائج</h3>
+                <ul style="list-style: none; padding-right: 1rem;">
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: var(--gold); position: absolute; right: 0;"></i>
+                        إثبات دور المقاومة في تسريع الاستقلال
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: var(--gold); position: absolute; right: 0;"></i>
+                        توثيق الذاكرة البصرية كشاهد تاريخي
+                    </li>
+                    <li style="padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-star" style="color: var(--gold); position: absolute; right: 0;"></i>
+                        تقديم نموذج للبحث التاريخي بالصور
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="group-card fade-in" style="animation-delay: 0.4s;">
+                <div class="group-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 style="color: var(--gold); margin-bottom: 1rem; text-align: center;">التوصيات</h3>
+                <ul style="list-style: none; padding-right: 1rem;">
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-arrow-right" style="color: var(--morocco-red); position: absolute; right: 0;"></i>
+                        إدراج الأرشيف البصري في المناهج التعليمية
+                    </li>
+                    <li style="margin-bottom: 1rem; padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-arrow-right" style="color: var(--morocco-red); position: absolute; right: 0;"></i>
+                        إنشاء متاحف رقمية للذاكرة الوطنية
+                    </li>
+                    <li style="padding-right: 1.5rem; position: relative;">
+                        <i class="fas fa-arrow-right" style="color: var(--morocco-red); position: absolute; right: 0;"></i>
+                        توثيق شهادات المقاومين الأحياء
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== الفوتر ===== -->
+    <footer class="main-footer">
+        <h3 class="footer-title">مجموعة "الخير"</h3>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+            ورشة الذاكرة والتاريخ | العرض النهائي للمشروع البحثي
+        </p>
+        
+        <div style="
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        ">
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem;">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div>الفترة: 1953-1956</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem;">
+                    <i class="fas fa-images"></i>
+                </div>
+                <div>15 صورة أرشيفية</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem;">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>فريق العمل البحثي</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>ورشة تعليمية</div>
+            </div>
+        </div>
+        
+        <div class="footer-signature">
+            <p>© 2024 - جميع الحقوق محفوظة | مشروع تعليمي بحثي مقدم في إطار ورشة الذاكرة والتاريخ</p>
+            <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">
+                "الذاكرة البصرية شاهد حي على نضال الأمة من أجل حريتها"
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== مودال عرض الصور ===== -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-info">
+                <div id="modalYear" class="modal-year"></div>
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalDescription" class="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== أزرار التحكم ===== -->
+    <div class="site-controls">
+        <button class="control-btn" onclick="rotateMuseum(-45)" title="تدوير المتحف لليسار">
+            <i class="fas fa-undo"></i>
+        </button>
+        <button class="control-btn" onclick="showAllImages()" title="عرض جميع الصور">
+            <i class="fas fa-th"></i>
+        </button>
+        <button class="control-btn" onclick="resetView()" title="إعادة التعيين">
+            <i class="fas fa-home"></i>
+        </button>
+        <button class="control-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="العودة للأعلى">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <button class="control-btn" onclick="toggleAutoRotate()" title="التدوير التلقائي">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    </div>
+
+    <!-- ===== جافاسكريبت ===== -->
+    <script>
+        // المتحف الثلاثي الأبعاد
+        let currentRotation = 0;
+        let isAutoRotating = true;
+        let autoRotateInterval;
+        const museumHall = document.getElementById('museumHall');
+        
+        // صور المتحف
+        const museumImages = [
+            { src: 'https://palatinu.co/wp-content/uploads/2022/04/Mohammed-V-1.jpg', title: 'الملك محمد الخامس', year: 'الخمسينات' },
+            { src: 'https://alittihad.info/wp-content/uploads/2017/08/galerie.jpg', title: 'نفي الملك محمد الخامس', year: '1953' },
+            { src: 'https://1.bp.blogspot.com/-IIR4b5iUIc8/UE-2HSvRckI/AAAAAAAAAfs/j8lOibZ0Ju8/s1600/allal+ben+abdallah.jpg', title: 'الشهيد علال بن عبد الله', year: '1953' },
+            { src: 'https://i1.hespress.com/wp-content/uploads/2008/02/abdelkarim5.jpg', title: 'القائد عبد الكريم الخطيب', year: '1954' },
+            { src: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1644199702i/32541132.jpg', title: 'مسيرة المليون', year: '1955' },
+            { src: 'https://marocnewsline.com/wp-content/uploads/2022/11/MVR-Sans-titre-3.jpg', title: 'عودة الملك من المنفى', year: '1955' },
+            { src: 'https://i0.wp.com/www.akhbaralfajr.ma/wp-content/uploads/2021/01/%D8%AA%D9%82%D9%8A%D8%AF%D9%85-%D9%88%D8%AB%D9%8A%D9%82%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%82%D9%84%D8%A7%D9%84-1.jpg?fit=883%2C476&ssl=1', title: 'وثيقة الاستقلال', year: '1956' }
+        ];
+        
+        // إنشاء المتحف
+        function createMuseum() {
+            museumHall.innerHTML = '';
+            const radius = 400;
+            const totalItems = museumImages.length;
+            
+            museumImages.forEach((img, index) => {
+                const angle = (index / totalItems) * Math.PI * 2;
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                
+                const artPiece = document.createElement('div');
+                artPiece.className = 'art-piece';
+                artPiece.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${angle}rad)`;
+                artPiece.innerHTML = `
+                    <img src="${img.src}" alt="${img.title}" 
+                         onerror="this.src='https://via.placeholder.com/400x500/333/FFFFFF?text=${encodeURIComponent(img.title)}'">
+                `;
+                
+                artPiece.addEventListener('click', () => {
+                    showImageModal(img.src, img.title, img.year, getImageDescription(img.title));
+                });
+                
+                museumHall.appendChild(artPiece);
+            });
+        }
+        
+        // الحصول على وصف الصورة
+        function getImageDescription(title) {
+            const descriptions = {
+                'الملك محمد الخامس': 'الملك محمد الخامس، رمز المقاومة الوطنية وقائد مسيرة الاستقلال. قاد النضال ضد الاستعمار الفرنسي ووحّد الشعب المغربي حول العرش.',
+                'نفي الملك محمد الخامس': 'تم نفي الملك محمد الخامس وأسرته إلى كورسيكا ثم مدغشقر في 20 أغسطس 1953. كان هذا الحدث الشرارة التي أشعلت المقاومة الوطنية.',
+                'الشهيد علال بن عبد الله': 'علال بن عبد الله، بطل المقاومة المغربية، حاول اغتيال السلطان الوهمي محمد بن عرفة في 11 سبتمبر 1953.',
+                'القائد عبد الكريم الخطيب': 'عبد الكريم الخطيب، قائد جيش التحرير المغربي، قاد العمليات العسكرية ضد القوات الفرنسية.',
+                'مسيرة المليون': 'مسيرة المليون التاريخية التي طالبت بعودة الملك محمد الخامس من المنفى في نوفمبر 1955.',
+                'عودة الملك من المنفى': 'عودة الملك محمد الخامس من المنفى بعد نضال شعبي طويل. شكلت عودته انتصاراً للمقاومة المغربية.',
+                'وثيقة الاستقلال': 'الوثيقة التاريخية التي أنهت الحماية الفرنسية على المغرب وأعلنت استقلال المملكة في 2 مارس 1956.'
+            };
+            
+            return descriptions[title] || 'صورة تاريخية توثق أحداث المقاومة المغربية للاستعمار الفرنسي.';
+        }
+        
+        // تدوير المتحف
+        function rotateMuseum(degrees) {
+            currentRotation += degrees;
+            museumHall.style.transform = `rotateY(${currentRotation}deg)`;
+        }
+        
+        // التدوير التلقائي
+        function startAutoRotate() {
+            if (isAutoRotating) {
+                autoRotateInterval = setInterval(() => {
+                    rotateMuseum(0.5);
+                }, 50);
+            }
+        }
+        
+        function toggleAutoRotate() {
+            isAutoRotating = !isAutoRotating;
+            if (isAutoRotating) {
+                startAutoRotate();
+                showNotification('التدوير التلقائي مفعل');
+            } else {
+                clearInterval(autoRotateInterval);
+                showNotification('التدوير التلقائي معطل');
+            }
+        }
+        
+        // عرض مودال الصورة
+        function showImageModal(src, title, year, description) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalYear = document.getElementById('modalYear');
+            const modalDescription = document.getElementById('modalDescription');
+            
+            modalImage.src = src;
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            modalYear.textContent = year;
+            modalDescription.textContent = description;
+            
+            modal.style.display = 'flex';
+        }
+        
+        // إغلاق المودال
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // إغلاق المودال بالنقر خارج المحتوى
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // إغلاق المودال بالزر ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // عرض جميع الصور
+        function showAllImages() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.95);
+                z-index: 2000;
+                overflow-y: auto;
+                padding: 2rem;
+            `;
+            
+            let content = '<div style="max-width: 1400px; margin: 0 auto;">';
+            content += '<h2 style="color: var(--gold); text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">المعرض الكامل</h2>';
+            content += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">';
+            
+            museumImages.forEach(img => {
+                content += `
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; cursor: pointer;" 
+                         onclick="showImageModal('${img.src}', '${img.title}', '${img.year}', '${getImageDescription(img.title)}')">
+                        <img src="${img.src}" alt="${img.title}" 
+                             style="width: 100%; height: 200px; object-fit: cover;"
+                             onerror="this.src='https://via.placeholder.com/400x200/333/FFFFFF?text=${encodeURIComponent(img.title)}'">
+                        <div style="padding: 1rem;">
+                            <div style="color: var(--gold); font-weight: bold; margin-bottom: 0.5rem;">${img.title}</div>
+                            <div style="color: #999; font-size: 0.9rem;">${img.year}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            content += '</div></div>';
+            
+            modal.innerHTML = content + `
+                <button onclick="this.parentElement.remove()" 
+                        style="position: fixed; top: 1rem; right: 1rem; 
+                               background: var(--morocco-red); color: white; 
+                               border: none; padding: 0.8rem 1.5rem; border-radius: 5px;
+                               cursor: pointer; font-size: 1.1rem;">
+                    ✕ إغلاق
+                </button>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        // إعادة التعيين
+        function resetView() {
+            currentRotation = 0;
+            museumHall.style.transform = `rotateY(${currentRotation}deg)`;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            showNotification('تمت إعادة التعيين');
+        }
+        
+        // عرض الإشعارات
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 1rem;
+                right: 50%;
+                transform: translateX(50%);
+                background: var(--morocco-green);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                z-index: 3000;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+        
+        // تفاعل السحب
+        let isDragging = false;
+        let startX, startRotation;
+        
+        museumHall.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startRotation = currentRotation;
+            if (isAutoRotating) {
+                clearInterval(autoRotateInterval);
+                isAutoRotating = false;
+            }
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            currentRotation = startRotation + deltaX * 0.5;
+            museumHall.style.transform = `rotateY(${currentRotation}deg)`;
+        });
+        
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        // للمس الشاشات
+        museumHall.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startRotation = currentRotation;
+            if (isAutoRotating) {
+                clearInterval(autoRotateInterval);
+                isAutoRotating = false;
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const deltaX = e.touches[0].clientX - startX;
+            currentRotation = startRotation + deltaX * 0.5;
+            museumHall.style.transform = `rotateY(${currentRotation}deg)`;
+        });
+        
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            // إنشاء المتحف
+            createMuseum();
+            
+            // بدء التدوير التلقائي
+            startAutoRotate();
+            
+            // تأثيرات التمرير
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = entry.target.style.animationDelay || '0s';
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+            
+            // إضافة أنماط للأنيميشن
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(50%) translateY(-100%); opacity: 0; }
+                    to { transform: translateX(50%) translateY(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(50%) translateY(0); opacity: 1; }
+                    to { transform: translateX(50%) translateY(-100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
